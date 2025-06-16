@@ -3,44 +3,48 @@
  Soccer Identification and Tracking
 This project focuses on detecting and re-identifying soccer players and the ball across different camera views using advanced computer vision techniques. It leverages YOLOv11 for object detection and includes a custom tracking and re-identification pipeline.
 
-📌 Project Objectives
-Player & Ball Detection: Use YOLOv11 to detect players and the ball in soccer video frames.
+# 📌 Project Objectives
 
-Re-identification: Match and track players across multiple camera angles (e.g., broadcast view and tacticam).
+* **Player & Ball Detection:**
+  Use **YOLOv11** to accurately detect **players and the ball** in each frame of soccer videos. This forms the foundation for further tracking and identification tasks.
 
-Tracking: Assign consistent IDs to players and track them over time within and across camera views.
+* **Re-identification:**
+  Match and **re-identify players across different camera views**, such as the broadcast and tacticam angles, ensuring each player is recognized consistently even when the viewpoint changes.
 
-📂 Dataset Annotation
-Classes:
-player - team player
+* **Tracking:**
+  Assign and maintain **consistent player IDs over time**, enabling reliable **player tracking both within a single camera view and across multiple camera angles** throughout the match.
 
-ball – For tracking the soccer ball.
+# 📂 Dataset Annotation
+ **Classes:**
+* **player -** team player
 
-Annotation Tool: Roboflow
+* **ball –** For tracking the soccer ball.
 
-Format: YOLO format with bounding box coordinates and class labels.
+* **Annotation Tool:** Roboflow
 
-🧠 Technologies Used
-Category	Tools/Frameworks
-Detection	YOLOv11 (Ultralytics)
-Annotation	Roboflow
-Language	Python
-Deployment	ONNX (for model export)
-Visualization	OpenCV, Matplotlib
+* **Format:** YOLO format with bounding box coordinates and class labels.
 
-Model Training
-python
-Copy
-Edit
+# 🧠 Technologies Used
+* ## Category	Tools/Frameworks 
+
+   Detection	YOLOv11 (Ultralytics)
+
+   Annotation	Roboflow
+
+   Language	Python
+
+   Deployment	ONNX (for model export)
+
+   Visualization	OpenCV, Matplotlib
+
+## Model Training
+
 from ultralytics import YOLO
 
 model = YOLO("yolo11n.pt")
 results = model.train(data="data.yaml", epochs=100)
 
-Export Model
-python
-Copy
-Edit
+## Export Model
 model.export(format="onnx")
 
 # Re-Identification & Tracking Pipeline
